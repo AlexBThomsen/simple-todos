@@ -1,0 +1,34 @@
+<body>
+  <div class="container">
+    <header>
+      <!-- below we add incompletecount from body.js a helper to count incomplted tasks -->
+      <h1>Todo List ({{incompleteCount}})</h1>
+
+      <label class="hide-completed">
+        <input type="checkbox" />
+        Hide Completed Tasks
+      </label>
+      <!-- ading code to add a login dropdown (used meteor add acounts-ui accounts-pasword to download package) -->
+      {{> loginButtons}}
+
+      <!-- if block helper to only show the form when there is a logged in user -->
+      {{#if currentUser}}
+        <form class="new-task">
+          <input type="text" name="text" placeholder="Type to add new tasks" />
+        </form>
+      {{/if}}
+
+      <form class="new-task">
+        <input type="text" name="text" placeholder="Type to add new tasks" />
+      </form>
+      
+    </header>
+ 
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
+ 
